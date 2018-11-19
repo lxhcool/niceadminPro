@@ -1,6 +1,6 @@
 <template>
   <div>
-    permission page
+    可切换账号测试
   </div>
 </template>
 

@@ -215,6 +215,37 @@ textarea {
     -o-transition: all 0.4s;
 }
 
+/* container */
+
+.container {
+    /* background: #ffffff; */
+}
+
+.nice-card {
+    background: #ffffff;
+    margin-bottom: 20px;
+}
+
+.nice-card:last-child {
+    margin-bottom: 0;
+}
+
+.nice-card-header {
+    position: relative;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 15px;
+    border-bottom: 1px solid #f6f6f6;
+    color: #333;
+    border-radius: 2px 2px 0 0;
+    font-size: 14px;
+}
+
+.nice-card-body {
+    position: relative;
+    padding: 10px 15px;
+    line-height: 24px;
+}
 
 /* table布局 */
 

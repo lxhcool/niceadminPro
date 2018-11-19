@@ -44,7 +44,7 @@ export const asyncRouterMap = [
         path: 'nav',
         component: _import('components/nav/Index'),
         name: 'nav',
-        meta: { title: '导航' }
+        meta: { title: '导航菜单' }
       }
     ]
   },

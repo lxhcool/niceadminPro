@@ -110,7 +110,7 @@ export default {
   },
   methods: {
     isOpen() {
-      this.menu.isCollapse = !this.isCollapse;
+      this.menu.isCollapse = !this.menu.isCollapse;
       if (this.menu.isCollapse) {
         this.$store.getters.sidebar.sliderState = 'close'
       } else {
