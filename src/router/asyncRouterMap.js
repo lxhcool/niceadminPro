@@ -17,9 +17,34 @@ export const asyncRouterMap = [
         name: 'permission',
         meta: {
           title: '权限控制',
-          icon: 'iconfont iconfont-menu nice-icon-deploymentunit',
+          icon: 'nice-icon-deploymentunit',
           roles: ['admin']
         }
+      }
+    ]
+  },
+  // 组件
+  {
+    path: '/components',
+    component: Layout,
+    redirect: 'noredirect',
+    name: 'components',
+    meta: {
+      title: '组件',
+      icon: 'nice-icon-manage'
+    },
+    children: [
+      {
+        path: 'button',
+        component: _import('components/button/Index'),
+        name: 'button',
+        meta: { title: '按钮' }
+      },
+      {
+        path: 'nav',
+        component: _import('components/nav/Index'),
+        name: 'nav',
+        meta: { title: '导航' }
       }
     ]
   },

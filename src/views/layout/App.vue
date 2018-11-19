@@ -34,9 +34,9 @@
           <el-dropdown trigger="click" @command="handelCommand">
             <span class="el-dropdown-link">
               <div class="fl avatar">
-                <img src="http://www.lxhcool.cn/wp-content/uploads/2018/07/2picdiy2017119946275522.png" alt="">
+                <img :src="avatar" alt="">
               </div>
-              <span class="fl">帝俊</span>
+              <span class="fl">{{userName}}</span>
               <i class="iconfont el-icon-caret-bottom fl"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -56,12 +56,11 @@
         </div>
         <div class="nice-nav-tree">
           <el-menu class="nice-menu" router 
-            :collapse="isCollapse" 
-            :background-color="bgColor" 
-            :text-color="textColor" 
-            :active-text-color="activeTextColor" 
-            :default-active="$route.path" 
-            :show-timeout="200">
+            :collapse="menu.isCollapse" 
+            :background-color="menu.bgColor" 
+            :text-color="menu.textColor" 
+            :active-text-color="menu.activeTextColor" 
+            :default-active="$route.path">
             <menu-list :routes="permission_routers"></menu-list>
           </el-menu>
         </div>
@@ -86,10 +85,14 @@ import breadcrumb from '@/components/breadcrumb'
 export default {
   data() {
     return {
-      isCollapse: false,
-      bgColor: '#30333C',
-      textColor: 'rgba(255,255,255,0.8)',
-      activeTextColor: '#ffd04b',
+      menu: {
+        isCollapse: false,
+        bgColor: '#30333C',
+        textColor: 'rgba(255,255,255,0.8)',
+        activeTextColor: '#ffd04b',
+      },
+      userName: this.$store.state.user.name,
+      avatar: this.$store.state.user.avatar
     };
   },
   components: {
@@ -97,17 +100,22 @@ export default {
     breadcrumb
   },
   computed: {
-    ...mapGetters(['sidebar', 'permission_routers']),
+    ...mapGetters(['permission_routers']),
     menuStatu() {
-      return this.isCollapse ? "nice-shrink" : "";
+      return this.menu.isCollapse ? "nice-shrink" : "";
     },
     iconStatu() {
-      return this.isCollapse ? "nice-icon-pic-right" : "nice-icon-pic-left";
+      return this.menu.isCollapse ? "nice-icon-pic-right" : "nice-icon-pic-left";
     }
   },
   methods: {
     isOpen() {
-      this.isCollapse = !this.isCollapse;
+      this.menu.isCollapse = !this.isCollapse;
+      if (this.menu.isCollapse) {
+        this.$store.getters.sidebar.sliderState = 'close'
+      } else {
+        this.$store.getters.sidebar.sliderState = 'open'
+      }
     },
     handelCommand(command) {
       if (command === "cancel") {
@@ -121,7 +129,7 @@ export default {
             this.$message('登出成功！');
             setTimeout(()=>{
               location.reload()
-            },1500)
+            }, 1500)
           })
         })
         .catch(error => {

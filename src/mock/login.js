@@ -8,12 +8,12 @@ const userMap = {
     avatar: 'http://www.lxhcool.cn/wp-content/uploads/2018/07/2picdiy2017119946275522.png',
     name: 'Admin'
   },
-  sakuya: {
+  lxhcool: {
     roles: ['lxhcool'],
     token: 'lxhcool',
     introduction: 'i am lxhcool',
     avatar: 'https://i.loli.net/2018/08/18/5b7819891bab1.jpg',
-    name: 'Sakuya'
+    name: 'lxhcool'
   }
 }
 
