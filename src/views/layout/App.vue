@@ -116,6 +116,7 @@ export default {
       } else {
         this.$store.getters.sidebar.sliderState = 'open'
       }
+      console.log(this.$store)
     },
     handelCommand(command) {
       if (command === "cancel") {
