@@ -3,142 +3,144 @@
     <el-row :gutter="20">
       <el-col :span="24">
         <div class="grid-content bg-purple">
-          <div class="nice-card">
-            <div class="nice-card-header">顶栏</div>
-            <div class="nice-card-body">
-              <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-                <el-menu-item index="1">处理中心</el-menu-item>
-                <el-submenu index="2">
-                  <template slot="title">我的工作台</template>
-                  <el-menu-item index="2-1">选项1</el-menu-item>
-                  <el-menu-item index="2-2">选项2</el-menu-item>
-                  <el-menu-item index="2-3">选项3</el-menu-item>
-                  <el-submenu index="2-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="2-4-1">选项1</el-menu-item>
-                    <el-menu-item index="2-4-2">选项2</el-menu-item>
-                    <el-menu-item index="2-4-3">选项3</el-menu-item>
-                  </el-submenu>
-                </el-submenu>
-                <el-menu-item index="3" disabled>消息中心</el-menu-item>
-                <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-              </el-menu>
-              <el-menu
-                :default-active="activeIndex2"
-                class="el-menu-demo"
-                mode="horizontal"
-                @select="handleSelect"
-                background-color="#545c64"
-                text-color="#fff"
-                active-text-color="#ffd04b">
-                <el-menu-item index="1">处理中心</el-menu-item>
-                <el-submenu index="2">
-                  <template slot="title">我的工作台</template>
-                  <el-menu-item index="2-1">选项1</el-menu-item>
-                  <el-menu-item index="2-2">选项2</el-menu-item>
-                  <el-menu-item index="2-3">选项3</el-menu-item>
-                  <el-submenu index="2-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="2-4-1">选项1</el-menu-item>
-                    <el-menu-item index="2-4-2">选项2</el-menu-item>
-                    <el-menu-item index="2-4-3">选项3</el-menu-item>
-                  </el-submenu>
-                </el-submenu>
-                <el-menu-item index="3" disabled>消息中心</el-menu-item>
-                <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
-              </el-menu>
+          <el-card class="nice-card">
+            <div slot="header" class="clearfix">
+              <span>顶栏</span>
             </div>
-          </div>
-          <div class="nice-card">
-            <div class="nice-card-header">侧栏</div>
-            <div class="nice-card-body">
-              <el-row class="tac" :gutter="20">
-                <el-col :span="12">
-                  <h5>默认颜色</h5>
-                  <el-menu
-                    default-active="2"
-                    class="el-menu-vertical-demo"
-                    @open="handleOpen"
-                    @close="handleClose">
-                    <el-submenu index="1">
-                      <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span>导航一</span>
-                      </template>
-                      <el-menu-item-group>
-                        <template slot="title">分组一</template>
-                        <el-menu-item index="1-1">选项1</el-menu-item>
-                        <el-menu-item index="1-2">选项2</el-menu-item>
-                      </el-menu-item-group>
-                      <el-menu-item-group title="分组2">
-                        <el-menu-item index="1-3">选项3</el-menu-item>
-                      </el-menu-item-group>
-                      <el-submenu index="1-4">
-                        <template slot="title">选项4</template>
-                        <el-menu-item index="1-4-1">选项1</el-menu-item>
-                      </el-submenu>
-                    </el-submenu>
-                    <el-menu-item index="2">
-                      <i class="el-icon-menu"></i>
-                      <span slot="title">导航二</span>
-                    </el-menu-item>
-                    <el-menu-item index="3" disabled>
-                      <i class="el-icon-document"></i>
-                      <span slot="title">导航三</span>
-                    </el-menu-item>
-                    <el-menu-item index="4">
-                      <i class="el-icon-setting"></i>
-                      <span slot="title">导航四</span>
-                    </el-menu-item>
-                  </el-menu>
-                </el-col>
-                <el-col :span="12">
-                  <h5>自定义颜色</h5>
-                  <el-menu
-                    default-active="2"
-                    class="el-menu-vertical-demo"
-                    @open="handleOpen"
-                    @close="handleClose"
-                    background-color="#545c64"
-                    text-color="#fff"
-                    active-text-color="#ffd04b">
-                    <el-submenu index="1">
-                      <template slot="title">
-                        <i class="el-icon-location"></i>
-                        <span>导航一</span>
-                      </template>
-                      <el-menu-item-group>
-                        <template slot="title">分组一</template>
-                        <el-menu-item index="1-1">选项1</el-menu-item>
-                        <el-menu-item index="1-2">选项2</el-menu-item>
-                      </el-menu-item-group>
-                      <el-menu-item-group title="分组2">
-                        <el-menu-item index="1-3">选项3</el-menu-item>
-                      </el-menu-item-group>
-                      <el-submenu index="1-4">
-                        <template slot="title">选项4</template>
-                        <el-menu-item index="1-4-1">选项1</el-menu-item>
-                      </el-submenu>
-                    </el-submenu>
-                    <el-menu-item index="2">
-                      <i class="el-icon-menu"></i>
-                      <span slot="title">导航二</span>
-                    </el-menu-item>
-                    <el-menu-item index="3" disabled>
-                      <i class="el-icon-document"></i>
-                      <span slot="title">导航三</span>
-                    </el-menu-item>
-                    <el-menu-item index="4">
-                      <i class="el-icon-setting"></i>
-                      <span slot="title">导航四</span>
-                    </el-menu-item>
-                  </el-menu>
-                </el-col>
-              </el-row>
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+              <el-menu-item index="1">处理中心</el-menu-item>
+              <el-submenu index="2">
+                <template slot="title">我的工作台</template>
+                <el-menu-item index="2-1">选项1</el-menu-item>
+                <el-menu-item index="2-2">选项2</el-menu-item>
+                <el-menu-item index="2-3">选项3</el-menu-item>
+                <el-submenu index="2-4">
+                  <template slot="title">选项4</template>
+                  <el-menu-item index="2-4-1">选项1</el-menu-item>
+                  <el-menu-item index="2-4-2">选项2</el-menu-item>
+                  <el-menu-item index="2-4-3">选项3</el-menu-item>
+                </el-submenu>
+              </el-submenu>
+              <el-menu-item index="3" disabled>消息中心</el-menu-item>
+              <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+            </el-menu>
+            <el-menu
+              :default-active="activeIndex2"
+              class="el-menu-demo"
+              mode="horizontal"
+              @select="handleSelect"
+              background-color="#545c64"
+              text-color="#fff"
+              active-text-color="#ffd04b">
+              <el-menu-item index="1">处理中心</el-menu-item>
+              <el-submenu index="2">
+                <template slot="title">我的工作台</template>
+                <el-menu-item index="2-1">选项1</el-menu-item>
+                <el-menu-item index="2-2">选项2</el-menu-item>
+                <el-menu-item index="2-3">选项3</el-menu-item>
+                <el-submenu index="2-4">
+                  <template slot="title">选项4</template>
+                  <el-menu-item index="2-4-1">选项1</el-menu-item>
+                  <el-menu-item index="2-4-2">选项2</el-menu-item>
+                  <el-menu-item index="2-4-3">选项3</el-menu-item>
+                </el-submenu>
+              </el-submenu>
+              <el-menu-item index="3" disabled>消息中心</el-menu-item>
+              <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+            </el-menu>
+          </el-card>
+          <el-card class="nice-card">
+            <div slot="header" class="clearfix">
+              <span>侧栏</span>
             </div>
-          </div>
-          <div class="nice-card">
-            <div class="nice-card-header">折叠</div>
+            <el-row class="tac" :gutter="20">
+              <el-col :span="12">
+                <h5>默认颜色</h5>
+                <el-menu
+                  default-active="2"
+                  class="el-menu-vertical-demo"
+                  @open="handleOpen"
+                  @close="handleClose">
+                  <el-submenu index="1">
+                    <template slot="title">
+                      <i class="el-icon-location"></i>
+                      <span>导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                      <template slot="title">分组一</template>
+                      <el-menu-item index="1-1">选项1</el-menu-item>
+                      <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                      <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                      <template slot="title">选项4</template>
+                      <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                  </el-submenu>
+                  <el-menu-item index="2">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">导航二</span>
+                  </el-menu-item>
+                  <el-menu-item index="3" disabled>
+                    <i class="el-icon-document"></i>
+                    <span slot="title">导航三</span>
+                  </el-menu-item>
+                  <el-menu-item index="4">
+                    <i class="el-icon-setting"></i>
+                    <span slot="title">导航四</span>
+                  </el-menu-item>
+                </el-menu>
+              </el-col>
+              <el-col :span="12">
+                <h5>自定义颜色</h5>
+                <el-menu
+                  default-active="2"
+                  class="el-menu-vertical-demo"
+                  @open="handleOpen"
+                  @close="handleClose"
+                  background-color="#545c64"
+                  text-color="#fff"
+                  active-text-color="#ffd04b">
+                  <el-submenu index="1">
+                    <template slot="title">
+                      <i class="el-icon-location"></i>
+                      <span>导航一</span>
+                    </template>
+                    <el-menu-item-group>
+                      <template slot="title">分组一</template>
+                      <el-menu-item index="1-1">选项1</el-menu-item>
+                      <el-menu-item index="1-2">选项2</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group title="分组2">
+                      <el-menu-item index="1-3">选项3</el-menu-item>
+                    </el-menu-item-group>
+                    <el-submenu index="1-4">
+                      <template slot="title">选项4</template>
+                      <el-menu-item index="1-4-1">选项1</el-menu-item>
+                    </el-submenu>
+                  </el-submenu>
+                  <el-menu-item index="2">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">导航二</span>
+                  </el-menu-item>
+                  <el-menu-item index="3" disabled>
+                    <i class="el-icon-document"></i>
+                    <span slot="title">导航三</span>
+                  </el-menu-item>
+                  <el-menu-item index="4">
+                    <i class="el-icon-setting"></i>
+                    <span slot="title">导航四</span>
+                  </el-menu-item>
+                </el-menu>
+              </el-col>
+            </el-row>
+          </el-card>
+          <el-card class="nice-card">
+            <div slot="header" class="clearfix">
+              <span>折叠</span>
+            </div>
             <div class="nice-card-body">
               <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
                 <el-radio-button :label="false">展开</el-radio-button>
@@ -177,7 +179,7 @@
                 </el-menu-item>
               </el-menu>
             </div>
-          </div>
+          </el-card>
         </div>
       </el-col>
     </el-row>
@@ -185,34 +187,34 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1',
-        isCollapse: true
-      };
+export default {
+  data() {
+    return {
+      activeIndex: "1",
+      activeIndex2: "1",
+      isCollapse: true
+    };
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
     },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     }
   }
+};
 </script>
 
 <style lang="less" scoped>
-  .el-menu-demo {
-    margin-bottom: 20px;
-  }
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
+.el-menu-demo {
+  margin-bottom: 20px;
+}
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 </style>

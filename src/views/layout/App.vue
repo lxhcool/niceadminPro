@@ -34,9 +34,9 @@
           <el-dropdown trigger="click" @command="handelCommand">
             <span class="el-dropdown-link">
               <div class="fl avatar">
-                <img :src="avatar" alt="">
+                <img :src="user.avatar" alt="">
               </div>
-              <span class="fl">{{userName}}</span>
+              <span class="fl">{{user.userName}}</span>
               <i class="iconfont el-icon-caret-bottom fl"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -48,20 +48,21 @@
         </li>
       </ul>
     </div>
-
     <div class="nice-side">
       <div class="nice-side-scroll">
         <div class="nice-logo">
           <span>niceAdmin Pro</span>
         </div>
         <div class="nice-nav-tree">
-          <el-menu class="nice-menu" router 
+          <el-menu class="nice-menu" 
+            router 
+            :unique-opened = "menu.unique"
             :collapse="menu.isCollapse" 
             :background-color="menu.bgColor" 
             :text-color="menu.textColor" 
             :active-text-color="menu.activeTextColor" 
             :default-active="$route.path">
-            <menu-list :routes="permission_routers"></menu-list>
+            <menu-list :menuList="menuData"></menu-list>
           </el-menu>
         </div>
       </div>
@@ -78,7 +79,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import Menu from "@/menu/index"
 import menuList from './components/Menu'
 import breadcrumb from '@/components/breadcrumb'
 
@@ -90,9 +91,13 @@ export default {
         bgColor: '#30333C',
         textColor: 'rgba(255,255,255,0.8)',
         activeTextColor: '#ffd04b',
+        unique: true
       },
-      userName: this.$store.state.user.name,
-      avatar: this.$store.state.user.avatar
+      menuData: Menu,
+      user: {
+        avatar: 'http://www.lxhcool.cn/wp-content/uploads/2018/07/2picdiy2017119946275522.png',
+        userName: 'Admin'
+      }
     };
   },
   components: {
@@ -100,7 +105,6 @@ export default {
     breadcrumb
   },
   computed: {
-    ...mapGetters(['permission_routers']),
     menuStatu() {
       return this.menu.isCollapse ? "nice-shrink" : "";
     },
@@ -111,11 +115,6 @@ export default {
   methods: {
     isOpen() {
       this.menu.isCollapse = !this.menu.isCollapse;
-      if (this.menu.isCollapse) {
-        this.$store.getters.sidebar.sliderState = 'close'
-      } else {
-        this.$store.getters.sidebar.sliderState = 'open'
-      }
     },
     handelCommand(command) {
       if (command === "cancel") {
@@ -126,10 +125,14 @@ export default {
         })
         .then(() => {
           this.$store.dispatch('logout').then(() => {
-            this.$message('登出成功！');
+            this.$notify({
+              title: '提示',
+              message: '登出成功！',
+              type: 'success'
+            });
             setTimeout(()=>{
               location.reload()
-            }, 1500)
+            }, 1000)
           })
         })
         .catch(error => {

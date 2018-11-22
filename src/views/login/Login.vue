@@ -35,8 +35,7 @@
   </div>
 </template>
 
-<script>
-  import storage from '@/utils/storage'
+// <script>
   export default {
     name: 'login',
     data () {
@@ -64,6 +63,11 @@
             }
             this.$store.dispatch('logined', params)
             .then((res)=>{
+              this.$notify({
+                title: '提示',
+                message: '登录成功！',
+                type: 'success'
+              });
               setTimeout(()=>{
                 this.loginLoading = false
                 this.$router.push({ path: '/' })

@@ -218,19 +218,16 @@ textarea {
 /* container */
 
 .container {
-    /* background: #ffffff; */
+    background: none;
 }
 
 .nice-card {
     background: #ffffff;
     margin-bottom: 20px;
+    border-radius: 4px;
 }
 
-.nice-card:last-child {
-    margin-bottom: 0;
-}
-
-.nice-card-header {
+.nice-card .el-card__header {
     position: relative;
     height: 42px;
     line-height: 42px;
@@ -241,10 +238,16 @@ textarea {
     font-size: 14px;
 }
 
-.nice-card-body {
-    position: relative;
-    padding: 10px 15px;
-    line-height: 24px;
+.nice-card .el-card__header span {
+    font-size: 14px;
+}
+
+.nice-card .el-card__body {
+    padding: 15px;
+}
+
+.nice-card:last-child {
+    margin-bottom: 0;
 }
 
 /* table布局 */

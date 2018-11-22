@@ -112,12 +112,18 @@
         background: 0 0;
         .nice-menu {
           border-right: 0;
+          .menuTitle {
+            font-size: 13px;
+          }
           .iconfont-menu {
             vertical-align: middle;
             margin-right: 10px;
             width: 24px;
             text-align: center;
-            font-size: 18px;
+            font-size: 17px;
+            &.nice-icon-dot-circle {
+              font-size: 14px;
+            }
           }
           .nice-icon-block {
             margin-right: 10px;
@@ -181,6 +187,13 @@
         background-image: url("../../../assets/nice-logo.png");
         span {
           display: none;
+        }
+      }
+      .nice-nav-tree {
+        .nice-menu {
+          span {
+            display: none;
+          }
         }
       }
     }
