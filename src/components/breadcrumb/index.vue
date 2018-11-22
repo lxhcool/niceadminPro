@@ -18,26 +18,6 @@
           "活动详情"
         ]
       }
-    },
-    created() {
-      this.getBreadcrumbList()
-    },
-    watch: {
-      $route() {
-        this.getBreadcrumbList()
-      }
-    },
-    methods: {
-      getBreadcrumbList () {
-        let matched = this.$route
-        console.log(matched)
-        // if (matched[0] && matched[0].name !== 'dashboard') {
-        //   matched = [{ path: '/dashboard', meta: { title: '首页' } }].concat(
-        //     matched
-        //   )
-        // }
-        // this.breadcrumbList = matched
-      }
     }
   }
 </script>
