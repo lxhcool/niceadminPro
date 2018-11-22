@@ -115,6 +115,15 @@ export default {
   methods: {
     isOpen() {
       this.menu.isCollapse = !this.menu.isCollapse;
+<<<<<<< HEAD
+=======
+      if (this.menu.isCollapse) {
+        this.$store.getters.sidebar.sliderState = 'close'
+      } else {
+        this.$store.getters.sidebar.sliderState = 'open'
+      }
+      console.log(this.$store)
+>>>>>>> 60f4d18d7158732aa427d352d8e10c475ee575d0
     },
     handelCommand(command) {
       if (command === "cancel") {

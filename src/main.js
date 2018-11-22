@@ -9,6 +9,13 @@ Vue.config.productionTip = false
 Vue.use(ElementUI)
 
 new Vue({
+<<<<<<< HEAD
   router,
   render: h => h(App),
 }).$mount('#app')
+=======
+    router,
+    store,
+    render: h => h(App),
+}).$mount('#app')
+>>>>>>> 60f4d18d7158732aa427d352d8e10c475ee575d0
