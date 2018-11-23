@@ -10,8 +10,8 @@ menu.home = {
 let homeChildren = menu.home.children
 
 homeChildren.dashboard = {
-    name: '控制台',
-    path: '/'
+    name: '仪表盘',
+    path: '/dashboard'
 }
 
 // 组件
@@ -25,11 +25,11 @@ let componentChildren = menu.component.children
 
 componentChildren.button = {
     name: '按钮',
-    path: '/button'
+    path: '/components/button'
 }
 componentChildren.nav = {
     name: '菜单导航',
-    path: '/nav'
+    path: '/components/nav'
 }
 
 // 设置
@@ -51,7 +51,7 @@ let systemChildren = setChildren.system.children
 
 systemChildren.website = {
     name: '网站设置',
-    path: '/website'
+    path: '/system/website'
 }
 
 setChildren.user = {
@@ -64,12 +64,12 @@ let userChildren = setChildren.user.children
 
 userChildren.info = {
     name: '基本资料',
-    path: '/info'
+    path: '/mySetting/userInfo'
 }
 
 userChildren.password = {
     name: '修改密码',
-    path: '/password'
+    path: '/mySetting/password'
 }
 
 export default menu

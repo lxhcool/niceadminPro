@@ -8,7 +8,9 @@
         </template>
         <!-- 二级菜单 -->
         <el-menu-item-group>
-          <el-menu-item v-if="!subItem.children" v-for="subItem of item.children" :key="subItem.name" :index="subItem.path">{{subItem.name}}</el-menu-item>
+          <el-menu-item v-if="!subItem.children" v-for="subItem of item.children" :key="subItem.name" :index="subItem.path">
+            {{subItem.name}}
+          </el-menu-item>
         </el-menu-item-group>
         <!-- 三级 -->
         <el-submenu v-if="subItem.children" v-for="(subItem, index) of item.children" :key="subItem.name" :index="index">
@@ -30,3 +32,9 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+  .el-menu-item-group__title {
+    padding: 0 !important;
+  }
+</style>
