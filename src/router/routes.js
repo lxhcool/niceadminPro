@@ -8,7 +8,7 @@ export const loginRouter = {
   meta: {
     title: '登录'
   },
-  component: resolve => { require(['../views/login/Login.vue']), resolve }
+  component: resolve => { require(['../views/login/Login.vue'], resolve) }
 }
 
 export const page404 = {
@@ -17,7 +17,7 @@ export const page404 = {
   meta: {
     title: '所请求的页面不存在或已被删除'
   },
-  component: resolve => { require(['../views/error/404']), resolve }
+  component: resolve => { require(['../views/error/404'], resolve) }
 }
 
 /** layout组件子组件 */

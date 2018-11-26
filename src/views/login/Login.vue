@@ -35,7 +35,8 @@
   </div>
 </template>
 
-// <script>
+<script>
+  import { setToken } from '@/utils/auth'
   export default {
     name: 'login',
     data () {
@@ -61,20 +62,27 @@
               username: username.trim(),
               password: password
             }
-            this.$store.dispatch('logined', params)
-            .then((res)=>{
-              this.$notify({
-                title: '提示',
-                message: '登录成功！',
-                type: 'success'
-              });
-              setTimeout(()=>{
+            this.axios.post('https://api.th580.com/customer/action/login', params)
+              .then((res) => {
+                if (res.data.error === 0) {
+                  let data = res.data.data
+                  setToken(data.token)
+                  this.$notify({
+                    title: '成功',
+                    message: '登录成功！',
+                    type: 'success'
+                  });
+                  setTimeout(()=>{
+                    this.loginLoading = false
+                    this.$router.push({ path: '/' })
+                  }, 1500)
+                } else {
+                  this.$message.error(res.data.errMsg);
+                  this.loginLoading = false
+                }
+              }).catch((err) => {
                 this.loginLoading = false
-                this.$router.push({ path: '/' })
-              },1500)
-            }).catch((err) => {
-              this.loginLoading = false
-            })
+              })
           } else {
             this.loading = false
             this.$message.error('似乎出了什么问题啊，啧啧啧')

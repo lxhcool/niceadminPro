@@ -79,7 +79,8 @@
 </template>
 
 <script>
-import Menu from "@/menu/index"
+import { removeToken } from '@/utils/auth'
+import Menu from '@/menu/index'
 import menuList from './components/Menu'
 import breadcrumb from '@/components/breadcrumb'
 
@@ -124,16 +125,15 @@ export default {
           type: "warning"
         })
         .then(() => {
-          this.$store.dispatch('logout').then(() => {
-            this.$notify({
-              title: '提示',
-              message: '登出成功！',
-              type: 'success'
-            });
-            setTimeout(()=>{
-              location.reload()
-            }, 1000)
-          })
+          this.$notify({
+            title: '提示',
+            message: '登出成功！',
+            type: 'success'
+          });
+          removeToken("niceAdmin-Token")
+          setTimeout(()=>{
+            location.reload()
+          }, 1000)
         })
         .catch(error => {
           console.log(error);

@@ -1,18 +1,29 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import { routes, menuRouter } from './routes'
-Vue.use(Router)
+import Vue from "vue";
+import Router from "vue-router";
+import { routes } from "./routes";
+import { getToken } from "../utils/auth"
+Vue.use(Router);
 
 const router = new Router({
-  mode: 'history',
+  mode: "history",
   routes,
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
+  scrollBehavior(to, from, savedPosition) {
+    return { x: 0, y: 0 };
+  }
+});
+
+router.beforeEach((to, from, next) => {
+  const isLogin = getToken() ? true : false
+  console.log(isLogin)
+  if (to.path === '/login') {
+    next()
+  } else {
+    if (isLogin) {
+      next()
+    } else {
+      next('/login')
+    }
   }
 })
 
-// router.beforeEach((to, from, next) => {
-//   // const menuList = 
-// })
-
-export default router
+export default router;
