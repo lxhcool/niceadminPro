@@ -6,7 +6,8 @@ export const loginRouter = {
   path: '/login',
   name: 'login',
   meta: {
-    title: '登录'
+    title: '登录',
+    requiresAuth: false
   },
   component: resolve => { require(['../views/login/Login.vue'], resolve) }
 }
@@ -34,7 +35,8 @@ export const menuRouter = [
       {
         path: 'dashboard',
         meta: {
-          title: '仪表盘'
+          title: '仪表盘',
+          requiresAuth: true
         },
         name: 'dashboard',
         component: resolve => { require(['../views/dashboard/Index'], resolve) }
@@ -44,7 +46,8 @@ export const menuRouter = [
   {
     path: '/components',
     meta: {
-      title: '组件'
+      title: '组件',
+      requiresAuth: true
     },
     name: 'components',
     component: Layout,
@@ -53,6 +56,7 @@ export const menuRouter = [
         path: 'button',
         meta: {
           title: '按钮',
+          requiresAuth: true,
           name: 'components_button'
         },
         component: resolve => { require(['../views/components/button/Index'], resolve) }
@@ -61,6 +65,7 @@ export const menuRouter = [
         path: 'nav',
         meta: {
           title: '菜单导航',
+          requiresAuth: true,
           name: 'components_nav'
         },
         component: resolve => { require(['../views/components/nav/Index'], resolve) }
@@ -70,7 +75,8 @@ export const menuRouter = [
   {
     path: '/set',
     meta: {
-      title: '设置'
+      title: '设置',
+      requiresAuth: true
     },
     name: 'set',
     component: Layout,
@@ -78,7 +84,8 @@ export const menuRouter = [
       {
         path: '/system',
         meta: {
-          title: '系统设置'
+          title: '系统设置',
+          requiresAuth: true
         },
         name: 'system',
         component: Layout,
@@ -87,6 +94,7 @@ export const menuRouter = [
             path: 'website',
             meta: {
               title: '网站设置',
+              requiresAuth: true,
               name: 'set_website'
             },
             component: resolve => { require(['../views/set/system/website/Index'], resolve) }
@@ -96,7 +104,8 @@ export const menuRouter = [
       {
         path: '/mySetting',
         meta: {
-          title: '我的设置'
+          title: '我的设置',
+          requiresAuth: true
         },
         name: 'mySetting',
         component: Layout,
@@ -105,6 +114,7 @@ export const menuRouter = [
             path: 'userInfo',
             meta: {
               title: '基本资料',
+              requiresAuth: true,
               name: 'set_userInfo'
             },
             component: resolve => { require(['../views/set/user/info/Index'], resolve) }
@@ -113,6 +123,7 @@ export const menuRouter = [
             path: 'password',
             meta: {
               title: '修改密码',
+              requiresAuth: true,
               name: 'set_password'
             },
             component: resolve => { require(['../views/set/user/password/Index'], resolve) }

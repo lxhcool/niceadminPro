@@ -1,5 +1,6 @@
 <template>
   <el-breadcrumb separator="/" class="nice-breadcrumb">
+    <el-breadcrumb-item :to="{ path: '/' }" v-if="isHome">主页</el-breadcrumb-item>
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="item in list" v-if="item.meta.title" :key="item.path">
         {{item.meta.title}}
@@ -10,29 +11,34 @@
 
 <script>
 export default {
-  name: "breadcrumb",
+  name: 'breadcrumb',
   data() {
     return {
       list: []
-    };
+    }
+  },
+  computed: {
+    isHome() {
+      return this.$route.name === 'dashboard' ? false : true
+    }
   },
   created() {
-    this.getList();
+    this.getList()
   },
   watch: {
     $route() {
-      this.getList();
+      this.getList()
     }
   },
   methods: {
     getList() {
       let matched = this.$route.matched.filter(item => {
-        return item.meta.title;
-      });
-      this.list = matched;
+        return item.meta.title
+      })
+      this.list = matched
     }
   }
-};
+}
 </script>
 
 <style lang="less">

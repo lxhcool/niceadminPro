@@ -9,9 +9,9 @@ niceadminPro
 
 #### 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. git clone ***
+2. npm install
+3. npm run serve
 
 #### 使用说明
 

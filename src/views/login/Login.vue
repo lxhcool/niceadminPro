@@ -36,7 +36,6 @@
 </template>
 
 <script>
-  import { setToken } from '@/utils/auth'
   export default {
     name: 'login',
     data () {
@@ -66,16 +65,17 @@
               .then((res) => {
                 if (res.data.error === 0) {
                   let data = res.data.data
-                  setToken(data.token)
                   this.$notify({
                     title: '成功',
                     message: '登录成功！',
                     type: 'success'
-                  });
+                  })
+                  this.$store.commit('setIsLogin', true)
+                  window.localStorage.setItem("isLogin", true)
                   setTimeout(()=>{
                     this.loginLoading = false
                     this.$router.push({ path: '/' })
-                  }, 1500)
+                  }, 1000)
                 } else {
                   this.$message.error(res.data.errMsg);
                   this.loginLoading = false

@@ -122,8 +122,6 @@ td {
 
 a {
     text-decoration: none;
-    blr: expression(this.onFocus=this.blur());
-    outline: none;
 }
 
 img {
@@ -147,23 +145,6 @@ label,
 input,
 select {
     vertical-align: middle;
-    border: 0;
-}
-
-input[type=submit],
-input[type=button],
-input[type=reset],
-input[type="button"],
-input[type="submit"],
-input[type="reset"],
-input[type="text"],
-select,
-button,
-textarea {
-    cursor: pointer;
-    background: none;
-    border: 0;
-    -webkit-appearance: none;
 }
 
 *:focus {

@@ -51,7 +51,7 @@
     <div class="nice-side">
       <div class="nice-side-scroll">
         <div class="nice-logo">
-          <span>niceAdmin Pro</span>
+          <router-link to="/" tag="span">niceAdmin Pro</router-link>
         </div>
         <div class="nice-nav-tree">
           <el-menu class="nice-menu" 
@@ -59,8 +59,7 @@
             :unique-opened = "menu.unique"
             :collapse="menu.isCollapse" 
             :background-color="menu.bgColor" 
-            :text-color="menu.textColor" 
-            :active-text-color="menu.activeTextColor" 
+            :text-color="menu.textColor"
             :default-active="$route.path">
             <menu-list :menuList="menuData"></menu-list>
           </el-menu>
@@ -91,7 +90,6 @@ export default {
         isCollapse: false,
         bgColor: '#30333C',
         textColor: 'rgba(255,255,255,0.8)',
-        activeTextColor: '#ffd04b',
         unique: true
       },
       menuData: Menu,
@@ -130,9 +128,11 @@ export default {
             message: '登出成功！',
             type: 'success'
           });
-          removeToken("niceAdmin-Token")
+          this.$store.commit('setIsLogin', false)
+          window.localStorage.setItem('isLogin', false)
           setTimeout(()=>{
             location.reload()
+            this.$router.push({path: '/login'})
           }, 1000)
         })
         .catch(error => {

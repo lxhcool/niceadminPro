@@ -1,29 +1,48 @@
-import Vue from "vue";
-import Router from "vue-router";
-import { routes } from "./routes";
-import { getToken } from "../utils/auth"
-Vue.use(Router);
+import Vue from 'vue'
+import Router from 'vue-router'
+import { routes } from './routes'
+import store from '../store'
+import { getToken } from '../utils/auth'
+Vue.use(Router)
 
 const router = new Router({
-  mode: "history",
+  mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
-    return { x: 0, y: 0 };
-  }
-});
-
-router.beforeEach((to, from, next) => {
-  const isLogin = getToken() ? true : false
-  console.log(isLogin)
-  if (to.path === '/login') {
-    next()
-  } else {
-    if (isLogin) {
-      next()
-    } else {
-      next('/login')
-    }
+    return { x: 0, y: 0 }
   }
 })
 
-export default router;
+if (window.localStorage.getItem('isLogin')) {
+  store.commit('setIsLogin', window.localStorage.getItem('isLogin'))
+}
+
+router.beforeEach((to, from, next) => {
+  let isLogin = store.getters.isLogin
+  if (isLogin === 'false') {
+    isLogin = false
+  } else if (isLogin === 'false') {
+    isLogin = true
+  }
+  if (to.matched.some(r => r.meta.requiresAuth)) {
+    if (!isLogin) {
+      if (from.name === 'login') {
+        next('/')
+        return
+      }
+      router.push({
+        name: 'login',
+        params: { redirect: to.fullPath }
+      })
+    }
+  }
+  if (to.name === 'login') {
+    if (isLogin) {
+      next('/')
+      return
+    }
+  }
+  next()
+})
+
+export default router
