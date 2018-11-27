@@ -135,7 +135,7 @@ export default {
           this.$store.commit('setIsLogin', false)
           window.localStorage.setItem('isLogin', false)
           setTimeout(()=>{
-            location.reload()
+            // location.reload()
             this.$router.push({path: '/login'})
           }, 1000)
         })

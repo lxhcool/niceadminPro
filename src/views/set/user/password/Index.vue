@@ -8,14 +8,14 @@
               <span>修改密码</span>
             </div>
             <el-form :model="passwordForm" status-icon :rules="rules" ref="passwordForm" label-width="100px" class="nice-baseForm">
-              <el-form-item label="当前密码" prop="oldPassword">
-                <el-input type="password" v-model="passwordForm.oldPassword" autocomplete="off"></el-input>
+              <el-form-item label="当前密码" prop="old_password">
+                <el-input type="password" v-model="passwordForm.old_password" autocomplete="off"></el-input>
               </el-form-item>
-              <el-form-item label="新密码" prop="newPassword">
-                <el-input type="password" v-model="passwordForm.newPassword" autocomplete="off"></el-input>
+              <el-form-item label="新密码" prop="new_password">
+                <el-input type="password" v-model="passwordForm.new_password" autocomplete="off"></el-input>
               </el-form-item>
-              <el-form-item label="确认新密码" prop="repassword">
-                <el-input type="password" v-model="passwordForm.repassword" autocomplete="off"></el-input>
+              <el-form-item label="确认新密码" prop="rep_password">
+                <el-input type="password" v-model="passwordForm.rep_password" autocomplete="off"></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button type="primary" @click="submitForm('passwordForm')">提交</el-button>
@@ -56,7 +56,7 @@
       let validateRepassword = (rule, value, callback) => {
         if (!value) {
           return callback(new Error('请再次输入新密码'))
-        } else if (value !== this.passwordForm.newPassword) {
+        } else if (value !== this.passwordForm.new_password) {
           return callback(new Error('两次输入密码不一致!'))
         } else {
           callback()
@@ -64,18 +64,18 @@
       }
       return {
         passwordForm: {
-          oldPassword: '',
-          newPassword: '',
-          repassword: ''
+          old_password: '',
+          new_password: '',
+          rep_password: ''
         },
         rules: {
-          oldPassword: [
+          old_password: [
             { validator: validateOldPassword, trigger: 'blur' }
           ],
-          newPassword: [
+          new_password: [
             { validator: validatePassword, trigger: 'blur' }
           ],
-          repassword: [
+          rep_password: [
             { validator: validateRepassword, trigger: 'blur' }
           ]
         }
@@ -85,7 +85,10 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.axios.post('https://api.th580.com/customer/action/resetPassword',this.passwordForm)
+            .then((res)=>{
+              console.log(res)
+            })
           } else {
             console.log('error submit!!');
             return false;
