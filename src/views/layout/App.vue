@@ -34,9 +34,9 @@
           <el-dropdown trigger="click" @command="handelCommand">
             <span class="el-dropdown-link">
               <div class="fl avatar">
-                <img :src="user.avatar" alt="">
+                <img :src="userInfo.avatar" alt="">
               </div>
-              <span class="fl">{{user.userName}}</span>
+              <span class="fl">{{userInfo.name}}</span>
               <i class="iconfont el-icon-caret-bottom fl"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -82,7 +82,6 @@ import { removeToken } from '@/utils/auth'
 import Menu from '@/menu/index'
 import menuList from './components/Menu'
 import breadcrumb from '@/components/breadcrumb'
-
 export default {
   data() {
     return {
@@ -104,15 +103,20 @@ export default {
     breadcrumb
   },
   computed: {
-    menuStatu() {
+    menuStatu () {
       return this.menu.isCollapse ? "nice-shrink" : "";
     },
-    iconStatu() {
+    iconStatu () {
       return this.menu.isCollapse ? "nice-icon-pic-right" : "nice-icon-pic-left";
+    },
+    userInfo () {
+      let userInfo = JSON.parse(localStorage.getItem('userInfo'))
+      return userInfo
     }
   },
   methods: {
     isOpen() {
+      console.log(this.$store.state)
       this.menu.isCollapse = !this.menu.isCollapse;
     },
     handelCommand(command) {

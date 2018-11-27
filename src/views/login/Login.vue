@@ -72,6 +72,8 @@
                   })
                   this.$store.commit('setIsLogin', true)
                   window.localStorage.setItem("isLogin", true)
+                  this.$store.commit('getUserInfo', JSON.stringify(data))
+                  window.localStorage.setItem("userInfo", JSON.stringify(data))
                   setTimeout(()=>{
                     this.loginLoading = false
                     this.$router.push({ path: '/' })
