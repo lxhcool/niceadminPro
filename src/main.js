@@ -5,7 +5,7 @@ import store from '@/store'
 import ElementUI from 'element-ui'
 import VueMouseParallax from 'vue-mouse-parallax'
 import axios from 'axios'
-import './theme/element-#00B38A/index.css'
+import '@/theme/index.scss'
 import '@/assets/css/reset.css'
 
 Vue.config.productionTip = false
