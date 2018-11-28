@@ -4,19 +4,16 @@ import router from '@/router'
 import store from '@/store'
 import ElementUI from 'element-ui'
 import VueMouseParallax from 'vue-mouse-parallax'
-import axios from 'axios'
+import http from '@/common/http'
+import api from '@/common/apis'
 import '@/theme/index.scss'
 import '@/assets/css/reset.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueMouseParallax)
-
-// 配置野狗默认根路径
-axios.defaults.baseURL = 'https://wd7833385346sutxth.wilddogio.com/'
-
-// 配置axios全局使用
-Vue.prototype.axios = axios
+Vue.use(http)
+Vue.use(api)
 
 new Vue({
   router,

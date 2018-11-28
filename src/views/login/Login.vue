@@ -99,7 +99,7 @@
               username: username.trim(),
               password: password
             }
-            this.axios.get('/user.json')
+            this.$http.get(this.api.login)
             .then(res => {
               const data = res.data
               const users = []
@@ -123,6 +123,8 @@
                 this.$message.error('请检查用户名或密码是否正确');
                 this.loginLoading = false
               }
+            }).catch(err => {
+                this.$message.error(err.message)
             })
           } else {
             this.loading = false
@@ -139,7 +141,7 @@
               username: username.trim(),
               password: password
             }
-            this.axios.post('/user.json', params)
+            this.$http.post(this.api.register, params)
             .then(res => {
               if (res.status === 200) {
                 this.$message({
@@ -151,6 +153,8 @@
                   this.type = 'login'
                 }, 1000)
               }
+            }).catch(err => {
+                this.$message.error(err.message)
             })
           } else {
             this.loading = false
