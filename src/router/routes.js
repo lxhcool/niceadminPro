@@ -25,7 +25,7 @@ export const page404 = {
 export const menuRouter = [
   {
     path: '/',
-    redirect: 'dashboard',
+    redirect: '/dashboard',
     name: 'home',
     meta: {
       title: '主页'

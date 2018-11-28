@@ -6,7 +6,7 @@ import { getToken } from '../utils/auth'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes,
   scrollBehavior(to, from, savedPosition) {
     return { x: 0, y: 0 }
@@ -16,33 +16,27 @@ const router = new Router({
 if (window.localStorage.getItem('isLogin')) {
   store.commit('setIsLogin', window.localStorage.getItem('isLogin'))
 }
-
+const whiteList = ['/login']
 router.beforeEach((to, from, next) => {
-  let isLogin = store.getters.isLogin
+  let isLogin = window.localStorage.getItem('isLogin')
   if (isLogin === 'false') {
     isLogin = false
   } else if (isLogin === 'false') {
     isLogin = true
   }
-  if (to.matched.some(r => r.meta.requiresAuth)) {
-    if (!isLogin) {
-      if (from.name === 'login') {
-        next('/')
-        return
-      }
-      router.push({
-        name: 'login',
-        params: { redirect: to.fullPath }
-      })
+  if (isLogin) {
+    if (to.path === '/login') {
+      next({path: '/'})
+    } else {
+      next()
+    }
+  } else {
+    if (whiteList.indexOf(to.path) !== -1) {
+      next()
+    } else {
+      next(`/login?redirect=${to.path}`)
     }
   }
-  if (to.name === 'login') {
-    if (isLogin) {
-      next('/')
-      return
-    }
-  }
-  next()
 })
 
 export default router

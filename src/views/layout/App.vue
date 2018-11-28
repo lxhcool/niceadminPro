@@ -34,9 +34,9 @@
           <el-dropdown trigger="click" @command="handelCommand">
             <span class="el-dropdown-link">
               <div class="fl avatar">
-                <img :src="userInfo.avatar" alt="">
+                <img :src="user.avatar" alt="">
               </div>
-              <span class="fl">{{userInfo.name}}</span>
+              <span class="fl">{{userInfo}}</span>
               <i class="iconfont el-icon-caret-bottom fl"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -110,7 +110,7 @@ export default {
       return this.menu.isCollapse ? "nice-icon-pic-right" : "nice-icon-pic-left";
     },
     userInfo () {
-      let userInfo = JSON.parse(localStorage.getItem('userInfo'))
+      let userInfo = localStorage.getItem('userInfo')
       return userInfo
     }
   },
@@ -135,7 +135,6 @@ export default {
           this.$store.commit('setIsLogin', false)
           window.localStorage.setItem('isLogin', false)
           setTimeout(()=>{
-            // location.reload()
             this.$router.push({path: '/login'})
           }, 1000)
         })
