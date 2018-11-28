@@ -246,8 +246,3 @@ select {
 .inline-block {
     display: inline-block;
 }
-
-.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
-    background: #f2f2f2;
-    color: #333;
-}

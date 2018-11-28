@@ -34,7 +34,7 @@
           <el-dropdown trigger="click" @command="handelCommand">
             <span class="el-dropdown-link">
               <div class="fl avatar">
-                <img :src="user.avatar" alt="">
+                <img src="../../assets/default-avatar.png" alt="">
               </div>
               <span class="fl">{{userInfo}}</span>
               <i class="iconfont el-icon-caret-bottom fl"></i>
@@ -93,7 +93,7 @@ export default {
       },
       menuData: Menu,
       user: {
-        avatar: 'http://www.lxhcool.cn/wp-content/uploads/2018/07/2picdiy2017119946275522.png',
+        avatar: '',
         userName: 'Admin'
       }
     };
