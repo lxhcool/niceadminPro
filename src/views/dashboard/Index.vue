@@ -346,6 +346,6 @@ export default {
 #panel,
 #website {
   width: 100%;
-  height: 300px;
+  height: 320px;
 }
 </style>
