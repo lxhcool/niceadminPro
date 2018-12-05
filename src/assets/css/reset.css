@@ -246,3 +246,12 @@ select {
 .inline-block {
     display: inline-block;
 }
+
+/* margin */
+.mb15 {
+  margin-bottom: 15px;
+}
+
+.mt15 {
+  margin-top: 15px;
+}

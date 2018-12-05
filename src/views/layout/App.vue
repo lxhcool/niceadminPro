@@ -22,7 +22,7 @@
         <li class="nice-nav-item">
           <a href="javascript:;" class="message">
             <i class="iconfont nice-icon-remind"></i>
-            <span class="layui-badge-dot"></span>
+            <span class="nice-badge-dot" v-if="false"></span>
           </a>
         </li>
         <li class="nice-nav-item">
@@ -91,6 +91,7 @@ export default {
         textColor: 'rgba(255,255,255,0.8)',
         unique: true
       },
+      color: '#00b38a',
       menuData: Menu,
       user: {
         avatar: '',
