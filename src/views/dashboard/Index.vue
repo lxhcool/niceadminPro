@@ -47,7 +47,7 @@
       </el-col>
     </el-row>
     <el-row :gutter="20" class="mt15">
-      <el-col :span="14">
+      <el-col :span="14" :lg="14" :md="24">
         <div class="grid-content bg-purple">
           <el-card class="nice-card">
             <div slot="header" class="clearfix">
@@ -57,7 +57,7 @@
           </el-card>
         </div>
       </el-col>
-      <el-col :span="10">
+      <el-col :span="10" :lg="10" :md="24">
         <div class="grid-content bg-purple">
           <el-card class="nice-card">
             <div slot="header" class="clearfix">
@@ -68,13 +68,113 @@
         </div>
       </el-col>
     </el-row>
+    <el-row :gutter="20" class="mt15">
+      <el-col :span="8">
+        <div class="grid-content bg-purple">
+          <el-card class="nice-card">
+            <div slot="header" class="clearfix">
+              <span>任务列表</span>
+            </div>
+            <div class="todo">
+              <el-table size="mini" stripe border :data="todos">
+                <el-table-column align="center" prop="name" label="任务"></el-table-column>
+                <el-table-column align="center" prop="time" label="所需时间"></el-table-column>
+                <el-table-column align="center" prop="complete" label="完成情况"></el-table-column>
+                <el-table-column align="center" label="操作">
+                  <template slot-scope="scope">
+                    <el-button size="mini" type="danger" @click="deleteRow(scope.$index, todos)">删除</el-button>
+                  </template>
+                </el-table-column>
+              </el-table>
+            </div> 
+          </el-card>
+        </div>
+      </el-col>
+      <el-col :span="8">
+        <div class="grid-content bg-purple">
+          <el-card class="nice-card">
+            <div slot="header" class="clearfix">
+              <span>版本信息</span>
+            </div>
+            <div class="todo">
+              <el-table size="mini" stripe border :data="versions">
+                <el-table-column width="150" align="center" prop="name" label="名称"></el-table-column>
+                <el-table-column align="center" prop="property" label="属性"></el-table-column>
+              </el-table>
+            </div>
+          </el-card>
+        </div>
+      </el-col>
+      <el-col :span="8">
+        <div class="grid-content bg-purple">
+          <el-card class="nice-card">
+            <div slot="header" class="clearfix">
+              <span>留言</span>
+            </div>
+            <div class="message">
+              <el-alert title="看什么看，有什么好看的" type="default"></el-alert>
+              <el-alert title="呜哈哈哈哈哈哈" type="success"></el-alert>
+              <el-alert title="嘻嘻嘻嘻嘻嘻嘻" type="info"></el-alert>
+              <el-alert title="好嗨哟，感觉人生已经达到了高潮" type="warning"></el-alert>
+              <el-alert title="感觉人生已经达到了巅峰" type="error"></el-alert>
+            </div>
+          </el-card>
+        </div>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {
+      todos: [
+        {
+          name: "吃饭",
+          time: "1小时",
+          complete: "已完成"
+        },
+        {
+          name: "看电影",
+          time: "2小时",
+          complete: "进行中"
+        },
+        {
+          name: "洗澡",
+          time: "2小时",
+          complete: "进行中"
+        },
+        {
+          name: "看书",
+          time: "2小时",
+          complete: "进行中"
+        },
+        {
+          name: "谈恋爱",
+          time: "很久",
+          complete: "进行中"
+        }
+      ],
+      versions: [
+        {
+          name: "当前版本",
+          property: "0.01",
+        },
+        {
+          name: "使用框架",
+          property: "element ul",
+        },
+        {
+          name: "码云地址",
+          property: "https://gitee.com/lxhcool/niceadminPro"
+        },
+        {
+          name: "线上地址",
+          property: "http://nicenav.cn/niceadmin"
+        }
+      ]
+    };
   },
   methods: {
     getLine() {
@@ -271,14 +371,14 @@ export default {
               }
             },
             data: [
-              { value: 10, name: "百度" },
-              { value: 5, name: "谷歌" },
-              { value: 15, name: "新浪" },
-              { value: 25, name: "淘宝" },
-              { value: 20, name: "京东" },
-              { value: 35, name: "网易" },
-              { value: 30, name: "苹果" },
-              { value: 40, name: "天猫" }
+              { value: 55, name: "百度" },
+              { value: 65, name: "谷歌" },
+              { value: 75, name: "新浪" },
+              { value: 85, name: "淘宝" },
+              { value: 95, name: "京东" },
+              { value: 105, name: "网易" },
+              { value: 115, name: "苹果" },
+              { value: 125, name: "天猫" }
             ]
           },
           {
@@ -305,19 +405,22 @@ export default {
               }
             },
             data: [
-              { value: 10, name: "百度" },
-              { value: 5, name: "谷歌" },
-              { value: 15, name: "新浪" },
-              { value: 25, name: "淘宝" },
-              { value: 20, name: "京东" },
-              { value: 35, name: "网易" },
-              { value: 30, name: "苹果" },
-              { value: 40, name: "天猫" }
+              { value: 55, name: "百度" },
+              { value: 65, name: "谷歌" },
+              { value: 75, name: "新浪" },
+              { value: 85, name: "淘宝" },
+              { value: 95, name: "京东" },
+              { value: 105, name: "网易" },
+              { value: 115, name: "苹果" },
+              { value: 125, name: "天猫" }
             ]
           }
         ]
       };
       website.setOption(option, true);
+    },
+    deleteRow(index, rows) {
+      rows.splice(index, 1);
     }
   },
   mounted() {
@@ -347,5 +450,22 @@ export default {
 #website {
   width: 100%;
   height: 320px;
+}
+.todo {
+  // height: 260px;
+  .todo-list {
+    .item {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+  }
+}
+.message .el-alert {
+  margin-bottom: 15px;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 </style>

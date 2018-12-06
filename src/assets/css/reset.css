@@ -56,6 +56,7 @@ caption,
 tbody,
 tfoot,
 thead,
+textarea,
 tr,
 th,
 td {
@@ -68,6 +69,15 @@ td {
     font-size: 13px;
     font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
     vertical-align: baseline;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
 * {
@@ -91,9 +101,6 @@ body {
     line-height: 22px;
     background: #F1F2F9;
     color: #6B7386;
-    -webkit-font-smoothing: antialiased;
-    -moz-font-smoothing: antialiased;
-    font-smoothing: antialiased;
     min-width: 320px;
     overflow-x: hidden;
 }
@@ -254,4 +261,10 @@ select {
 
 .mt15 {
   margin-top: 15px;
+}
+
+/* element add */
+.el-alert--default {
+  background-color: #cdf5eb;
+  color:  #00b38a;
 }
