@@ -3,7 +3,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 module.exports = {
-  baseUrl: process.env.baseUrl,
+  baseUrl: './',
   outputDir: process.env.outputDir,
   lintOnSave: true,
 
@@ -29,9 +29,6 @@ module.exports = {
       .add('.js')
       .add('.vue')
       .add('.styl')
-
-    config.module.rule('svg').uses.clear()
-    config.module.rule('svg').use('raw-loader').loader('raw-loader')
   },
   productionSourceMap: true,
   css: {
