@@ -1,59 +1,137 @@
 <template>
   <div class="dashboard container">
-    <el-row :gutter="20">
-      <el-col :span="6">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>访问量</span>
-            </div>
-            <h2 class="num">9,999,666</h2>
-            <p class="title">总计访问量<span class="fr"><i class="iconfont nice-icon-fangwenliang"></i></span></p>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>留言</span>
-            </div>
-            <h2 class="num">81212</h2>
-            <p class="title">总计留言数<span class="fr"><i class="iconfont nice-icon-liuyan"></i></span></p>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>收入</span>
-            </div>
-            <h2 class="num">88888888</h2>
-            <p class="title">总收入<span class="fr"><i class="iconfont nice-icon-shouru"></i></span></p>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>商品</span>
-            </div>
-            <h2 class="num">120</h2>
-            <p class="title">商品总数量<span class="fr"><i class="iconfont nice-icon-shangpin"></i></span></p>
-          </el-card>
-        </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20" class="mt15">
+    <div class="nice-item">
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>访问量</span>
+              </div>
+              <h2 class="num">9,999,666</h2>
+              <p class="title">总计访问量<span class="fr"><i class="iconfont nice-icon-fangwenliang"></i></span></p>
+            </el-card>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>留言</span>
+              </div>
+              <h2 class="num">81212</h2>
+              <p class="title">总计留言数<span class="fr"><i class="iconfont nice-icon-liuyan"></i></span></p>
+            </el-card>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>收入</span>
+              </div>
+              <h2 class="num">88888888</h2>
+              <p class="title">总收入<span class="fr"><i class="iconfont nice-icon-shouru"></i></span></p>
+            </el-card>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>商品</span>
+              </div>
+              <h2 class="num">120</h2>
+              <p class="title">商品总数量<span class="fr"><i class="iconfont nice-icon-shangpin"></i></span></p>
+            </el-card>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <div class="nice-item">
+      <el-row :gutter="20">
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>信息</span>
+              </div>
+              <div class="userinfo con">
+                <div class="avatar">
+                  <img src="../../assets/default-avatar.png" alt="">
+                </div>
+                <p class="name">niceadmin Pro</p>
+                <p class="nickname">lxhcool</p>
+                <p class="description">我见证过无数的奇迹与灾祸！时空的诞生与崩塌！” “我走的道路，孤注一掷，不！” “我只想继续走下去......” “这个我......是最完美的一个。” “......但你们永远不会记得</p>
+                <ul class="contact">
+		              <li>
+                    <el-tooltip class="item" effect="dark" content="1138659665@qq.com" placement="top">
+                      <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1138659665@qq.com" target="_blank">
+                        <img src="../../assets/contact/mail.png">
+                      </a>
+                    </el-tooltip>
+                  </li>
+                  <li>
+                    <el-tooltip class="item" effect="dark" content="1138659665" placement="top">
+                      <a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1138659665&amp;site=qq&amp;menu=yes" target="_blank">
+                        <img src="../../assets/contact/qq.png">
+                      </a>
+                    </el-tooltip>
+                  </li>
+                  <li>
+                    <el-tooltip class="item" effect="dark" content="18668161482" placement="top">
+                      <a href="javascript:;">
+                        <img src="../../assets/contact/wexin.png">
+                      </a>
+                    </el-tooltip>
+                  </li>
+                  <li>
+                    <a href="https://gitee.com/lxhcool" target="_blank">
+                      <img src="../../assets/contact/github.png">
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://music.163.com/#/user/home?id=119832090" target="_blank">
+                      <img src="../../assets/contact/music.png">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </el-card>
+          </div>
+        </el-col>
+        <el-col :span="12">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>访问量</span>
+              </div>
+              <div id="panel"></div>
+            </el-card>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>日历</span>
+              </div>
+              <div class="calendar">
+                <full-calendar ref="calendar" :event-sources="eventSources" @event-selected="eventSelected" @event-created="eventCreated" :config="config"></full-calendar>
+              </div>              
+            </el-card>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <el-row :gutter="20" class="mt15" style="display:none">
       <el-col :span="14" :lg="14" :md="24">
         <div class="grid-content bg-purple">
           <el-card class="nice-card">
             <div slot="header" class="clearfix">
               <span>访问量</span>
             </div>
-            <div id="panel"></div>
+            <div id="panel" class="panel"></div>
           </el-card>
         </div>
       </el-col>
@@ -68,7 +146,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-row :gutter="20" class="mt15">
+    <el-row :gutter="20" class="mt15" style="display:none">
       <el-col :span="8">
         <div class="grid-content bg-purple">
           <el-card class="nice-card">
@@ -126,6 +204,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 export default {
   data() {
     return {
@@ -173,7 +252,45 @@ export default {
           name: "线上地址",
           property: "http://nicenav.cn/niceadmin"
         }
-      ]
+      ],
+      events: [{
+          id: 1,
+          title: 'event1',
+          start: moment().hours(12).minutes(0),
+        },
+        {
+          id: 2,
+          title: 'event2',
+          start: moment().add(-1, 'days'),
+          end: moment().add(1, 'days'),
+          allDay: true,
+        },
+        {
+          id: 3,
+          title: 'event3',
+          start: moment().add(2, 'days'),
+          end: moment().add(2, 'days').add(6, 'hours'),
+          allDay: false,
+        },
+      ],
+
+      config: {
+        header: {
+          left: 'prev',
+          center: 'title, today',
+          right: 'next'
+        },
+        defaultView: 'month',
+        eventClick: (event) => {
+          this.selected = event;
+        },
+        titleFormat: 'YYYY MMMM',
+        monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+        monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+        dayNamesShort: ['日', '一', '二', '三', '四', '五', '六']
+      },
+
+      selected: {},
     };
   },
   methods: {
@@ -241,7 +358,7 @@ export default {
             areaStyle: { normal: {} },
             itemStyle: {
               normal: {
-                color: "rgba(64, 158, 255, 0.8)"
+                color: "#92f0e6"
               }
             },
             data: [
@@ -272,7 +389,7 @@ export default {
             areaStyle: { normal: {} },
             itemStyle: {
               normal: {
-                color: "rgba(0, 179, 138, 0.8)"
+                color: "#b8d7ff"
               }
             },
             data: [
@@ -431,41 +548,5 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.num {
-  font-size: 36px;
-  color: #666;
-  line-height: 36px;
-  padding: 5px 0 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  white-space: nowrap;
-}
-.title {
-  span {
-    vertical-align: middle;
-  }
-}
-#panel,
-#website {
-  width: 100%;
-  height: 320px;
-}
-.todo {
-  // height: 260px;
-  .todo-list {
-    .item {
-      width: 100%;
-      padding: 10px;
-      border-radius: 4px;
-      margin-top: 10px;
-    }
-  }
-}
-.message .el-alert {
-  margin-bottom: 15px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
+@import "index.less";
 </style>

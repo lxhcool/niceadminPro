@@ -1,5 +1,5 @@
 <template>
-  <el-breadcrumb separator="/" class="nice-breadcrumb">
+  <el-breadcrumb separator="/" class="nice-breadcrumb" v-if="isHome">
     <el-breadcrumb-item :to="{ path: '/' }" v-if="isHome">主页</el-breadcrumb-item>
     <transition-group name="breadcrumb">
       <el-breadcrumb-item v-for="item in list" v-if="item.meta.title" :key="item.path">
@@ -20,7 +20,7 @@ export default {
   computed: {
     isHome() {
       return this.$route.name === 'dashboard' ? false : true
-    }
+    },
   },
   created() {
     this.getList()

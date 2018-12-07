@@ -113,11 +113,16 @@ export default {
     userInfo () {
       let userInfo = localStorage.getItem('userInfo')
       return userInfo
+    },
+    isFluid () {
+      let isHome = this.$route.name
+      if (isHome === 'dashboard') {
+        return 'dashboard'
+      }
     }
   },
   methods: {
     isOpen() {
-      console.log(this.$store.state)
       this.menu.isCollapse = !this.menu.isCollapse;
     },
     handelCommand(command) {

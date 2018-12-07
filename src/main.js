@@ -3,6 +3,7 @@ import App from '@/App.vue'
 import router from '@/router'
 import store from '@/store'
 import ElementUI from 'element-ui'
+import FullCalendar from 'vue-full-calendar'
 import echarts from 'echarts/lib/echarts'
 import VueMouseParallax from 'vue-mouse-parallax'
 import http from '@/common/http'
@@ -20,6 +21,7 @@ require('echarts/lib/component/legend')
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueMouseParallax)
+Vue.use(FullCalendar)
 Vue.use(http)
 Vue.use(api)
 Vue.prototype.$echarts = echarts

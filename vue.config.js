@@ -4,9 +4,8 @@ function resolve(dir) {
 }
 module.exports = {
   baseUrl: './',
-  outputDir: process.env.outputDir,
-  lintOnSave: true,
-
+  outputDir: process.env.outputDir, // 构建输出目录 dist
+  lintOnSave: true, // 是否开启eslint保存检测，有效值：ture | false | 'error'
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       // 为生产环境修改配置...
