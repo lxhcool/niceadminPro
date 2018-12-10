@@ -100,7 +100,7 @@
             </el-card>
           </div>
         </el-col>
-        <el-col :span="12">
+        <el-col :span="18">
           <div class="grid-content bg-purple">
             <el-card class="nice-card">
               <div slot="header" class="clearfix">
@@ -110,22 +110,22 @@
             </el-card>
           </div>
         </el-col>
-        <el-col :span="6">
-          <div class="grid-content bg-purple">
-            <el-card class="nice-card">
-              <div slot="header" class="clearfix">
-                <span>日历</span>
-              </div>
-              <div class="calendar">
-                <full-calendar ref="calendar" :event-sources="eventSources" @event-selected="eventSelected" @event-created="eventCreated" :config="config"></full-calendar>
-              </div>              
-            </el-card>
-          </div>
-        </el-col>
       </el-row>
     </div>
-    <el-row :gutter="20" class="mt15" style="display:none">
-      <el-col :span="14" :lg="14" :md="24">
+    <el-row :gutter="20" class="mt15">
+      <el-col :span="24">
+        <div class="grid-content bg-purple">
+          <el-card class="nice-card">
+            <div slot="header" class="clearfix">
+              <span>日历</span>
+            </div>
+            <div class="calendar">
+              <full-calendar ref="calendar" :events="events" :config="config"></full-calendar>
+            </div>              
+          </el-card>
+        </div>
+      </el-col>
+      <el-col :span="14" :lg="14" :md="24" style="display:none">
         <div class="grid-content bg-purple">
           <el-card class="nice-card">
             <div slot="header" class="clearfix">
@@ -135,7 +135,7 @@
           </el-card>
         </div>
       </el-col>
-      <el-col :span="10" :lg="10" :md="24">
+      <el-col :span="10" :lg="10" :md="24" style="display:none">
         <div class="grid-content bg-purple">
           <el-card class="nice-card">
             <div slot="header" class="clearfix">
@@ -204,7 +204,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+import moment from "moment";
 export default {
   data() {
     return {
@@ -238,11 +238,11 @@ export default {
       versions: [
         {
           name: "当前版本",
-          property: "0.01",
+          property: "0.01"
         },
         {
           name: "使用框架",
-          property: "element ul",
+          property: "element ul"
         },
         {
           name: "码云地址",
@@ -253,44 +253,90 @@ export default {
           property: "http://nicenav.cn/niceadmin"
         }
       ],
-      events: [{
-          id: 1,
-          title: 'event1',
-          start: moment().hours(12).minutes(0),
+      events: [
+        {
+          title: "锻炼身体",
+          start: "2018-12-10",
+          end: "2018-12-11",
+          className: "default",
+          description: "50个下蹲，30个俯卧撑，哑铃左右手各30下..."
         },
         {
-          id: 2,
-          title: 'event2',
-          start: moment().add(-1, 'days'),
-          end: moment().add(1, 'days'),
-          allDay: true,
+          title: "优先级低",
+          start: "2018-12-11",
+          className: "primary"
         },
         {
-          id: 3,
-          title: 'event3',
-          start: moment().add(2, 'days'),
-          end: moment().add(2, 'days').add(6, 'hours'),
-          allDay: false,
+          title: "优先级一般",
+          start: "2018-12-12",
+          className: "success"
         },
+        {
+          title: "优先级中",
+          start: "2018-12-13",
+          className: "info"
+        },
+        {
+          title: "优先级较高",
+          start: "2018-12-14",
+          className: "warning"
+        },
+        {
+          title: "优先级高",
+          start: "2018-12-15",
+          className: "danger"
+        }
       ],
-
       config: {
         header: {
-          left: 'prev',
-          center: 'title, today',
-          right: 'next'
+          left: "prev,next,today",
+          center: "title",
+          right: "month, basicWeek, basicDay, list"
         },
-        defaultView: 'month',
-        eventClick: (event) => {
-          this.selected = event;
-        },
-        titleFormat: 'YYYY MMMM',
-        monthNames: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
-        monthNamesShort: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-        dayNamesShort: ['日', '一', '二', '三', '四', '五', '六']
-      },
-
-      selected: {},
+        height: "auto",
+        defaultView: "month",
+        titleFormat: "MMMM YYYY",
+        monthNames: [
+          "1月",
+          "2月",
+          "3月",
+          "4月",
+          "5月",
+          "6月",
+          "7月",
+          "8月",
+          "9月",
+          "10月",
+          "11月",
+          "12月"
+        ],
+        monthNamesShort: [
+          "一月",
+          "二月",
+          "三月",
+          "四月",
+          "五月",
+          "六月",
+          "七月",
+          "八月",
+          "九月",
+          "十月",
+          "十一月",
+          "十二月"
+        ],
+        dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        eventClick: event => {
+          console.log(event)
+          if (event.description) {
+            let startTime = event.start._i
+            let endTime = event.end._i ? " 至 " + event.end._i : ''
+            let info = "<div class='info'><p>时间："+startTime+endTime+"</p><p>详细："+event.description+"</p></div>";
+            this.$alert(info, event.title, {
+              dangerouslyUseHTMLString: true
+            });
+          }
+        }
+      }
     };
   },
   methods: {
@@ -354,7 +400,6 @@ export default {
             name: "PV",
             type: "line",
             smooth: true,
-            stack: "总量",
             areaStyle: { normal: {} },
             itemStyle: {
               normal: {
@@ -385,7 +430,6 @@ export default {
             name: "UV",
             type: "line",
             smooth: true,
-            stack: "总量",
             areaStyle: { normal: {} },
             itemStyle: {
               normal: {
@@ -547,6 +591,8 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+@import "~fullcalendar/dist/fullcalendar.css";
 @import "index.less";
+@import "calendar.less";
 </style>
