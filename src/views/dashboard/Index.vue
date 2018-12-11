@@ -100,13 +100,23 @@
             </el-card>
           </div>
         </el-col>
-        <el-col :span="18">
+        <el-col :span="12">
           <div class="grid-content bg-purple">
             <el-card class="nice-card">
               <div slot="header" class="clearfix">
                 <span>访问量</span>
               </div>
               <div id="panel"></div>
+            </el-card>
+          </div>
+        </el-col>
+        <el-col :span="6">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>天气</span>
+              </div>
+              <weather-component></weather-component>    
             </el-card>
           </div>
         </el-col>
@@ -120,82 +130,8 @@
               <span>日历</span>
             </div>
             <div class="calendar">
-              <full-calendar ref="calendar" :events="events" :config="config"></full-calendar>
+              <full-calendar :events="events" :config="config"></full-calendar>
             </div>              
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="14" :lg="14" :md="24" style="display:none">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>访问量</span>
-            </div>
-            <div id="panel" class="panel"></div>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="10" :lg="10" :md="24" style="display:none">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>网站</span>
-            </div>
-            <div id="website"></div>
-          </el-card>
-        </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20" class="mt15" style="display:none">
-      <el-col :span="8">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>任务列表</span>
-            </div>
-            <div class="todo">
-              <el-table size="mini" stripe border :data="todos">
-                <el-table-column align="center" prop="name" label="任务"></el-table-column>
-                <el-table-column align="center" prop="time" label="所需时间"></el-table-column>
-                <el-table-column align="center" prop="complete" label="完成情况"></el-table-column>
-                <el-table-column align="center" label="操作">
-                  <template slot-scope="scope">
-                    <el-button size="mini" type="danger" @click="deleteRow(scope.$index, todos)">删除</el-button>
-                  </template>
-                </el-table-column>
-              </el-table>
-            </div> 
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="8">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>版本信息</span>
-            </div>
-            <div class="todo">
-              <el-table size="mini" stripe border :data="versions">
-                <el-table-column width="150" align="center" prop="name" label="名称"></el-table-column>
-                <el-table-column align="center" prop="property" label="属性"></el-table-column>
-              </el-table>
-            </div>
-          </el-card>
-        </div>
-      </el-col>
-      <el-col :span="8">
-        <div class="grid-content bg-purple">
-          <el-card class="nice-card">
-            <div slot="header" class="clearfix">
-              <span>留言</span>
-            </div>
-            <div class="message">
-              <el-alert title="看什么看，有什么好看的" type="default"></el-alert>
-              <el-alert title="呜哈哈哈哈哈哈" type="success"></el-alert>
-              <el-alert title="嘻嘻嘻嘻嘻嘻嘻" type="info"></el-alert>
-              <el-alert title="好嗨哟，感觉人生已经达到了高潮" type="warning"></el-alert>
-              <el-alert title="感觉人生已经达到了巅峰" type="error"></el-alert>
-            </div>
           </el-card>
         </div>
       </el-col>
@@ -204,55 +140,11 @@
 </template>
 
 <script>
-import moment from "moment";
+import fullCalendar from "@/components/calendar";
+import weatherComponent from "@/components/weather"
 export default {
   data() {
     return {
-      todos: [
-        {
-          name: "吃饭",
-          time: "1小时",
-          complete: "已完成"
-        },
-        {
-          name: "看电影",
-          time: "2小时",
-          complete: "进行中"
-        },
-        {
-          name: "洗澡",
-          time: "2小时",
-          complete: "进行中"
-        },
-        {
-          name: "看书",
-          time: "2小时",
-          complete: "进行中"
-        },
-        {
-          name: "谈恋爱",
-          time: "很久",
-          complete: "进行中"
-        }
-      ],
-      versions: [
-        {
-          name: "当前版本",
-          property: "0.01"
-        },
-        {
-          name: "使用框架",
-          property: "element ul"
-        },
-        {
-          name: "码云地址",
-          property: "https://gitee.com/lxhcool/niceadminPro"
-        },
-        {
-          name: "线上地址",
-          property: "http://nicenav.cn/niceadmin"
-        }
-      ],
       events: [
         {
           title: "锻炼身体",
@@ -326,7 +218,6 @@ export default {
         ],
         dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         eventClick: event => {
-          console.log(event)
           if (event.description) {
             let startTime = event.start._i
             let endTime = event.end._i ? " 至 " + event.end._i : ''
@@ -338,6 +229,10 @@ export default {
         }
       }
     };
+  },
+  components: {
+    fullCalendar,
+    weatherComponent
   },
   methods: {
     getLine() {
@@ -459,140 +354,14 @@ export default {
         ]
       };
       panel.setOption(option, true);
-    },
-    getWebsite() {
-      let website = this.$echarts.init(document.getElementById("website"));
-      let option = {
-        title: {
-          text: "玫瑰图",
-          subtext: "纯属虚构",
-          x: "center"
-        },
-        tooltip: {
-          trigger: "item",
-          formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        legend: {
-          x: "center",
-          y: "bottom",
-          data: ["百度", "谷歌", "新浪", "淘宝", "京东", "网易", "苹果", "天猫"]
-        },
-        toolbox: {
-          show: true,
-          feature: {
-            mark: { show: true },
-            dataView: { show: true, readOnly: false },
-            magicType: {
-              show: true,
-              type: ["pie", "funnel"]
-            },
-            restore: { show: true },
-            saveAsImage: { show: true }
-          }
-        },
-        calculable: true,
-        series: [
-          {
-            name: "半径模式",
-            type: "pie",
-            radius: [20, 110],
-            center: ["25%", "50%"],
-            roseType: "radius",
-            label: {
-              normal: {
-                show: false
-              },
-              emphasis: {
-                show: true
-              }
-            },
-            lableLine: {
-              normal: {
-                show: false
-              },
-              emphasis: {
-                show: true
-              }
-            },
-            itemStyle: {
-              normal: {
-                color: function(params) {
-                  var colorList = [
-                    "#37a1db",
-                    "#32c5e9",
-                    "#9fe6b8",
-                    "#ffdb5c",
-                    "#ff9f7f",
-                    "#fb7293",
-                    "#e8bcf3",
-                    "#8277ea"
-                  ];
-                  return colorList[params.dataIndex];
-                }
-              }
-            },
-            data: [
-              { value: 55, name: "百度" },
-              { value: 65, name: "谷歌" },
-              { value: 75, name: "新浪" },
-              { value: 85, name: "淘宝" },
-              { value: 95, name: "京东" },
-              { value: 105, name: "网易" },
-              { value: 115, name: "苹果" },
-              { value: 125, name: "天猫" }
-            ]
-          },
-          {
-            name: "面积模式",
-            type: "pie",
-            radius: [30, 110],
-            center: ["75%", "50%"],
-            roseType: "area",
-            itemStyle: {
-              normal: {
-                color: function(params) {
-                  var colorList = [
-                    "#37a1db",
-                    "#32c5e9",
-                    "#9fe6b8",
-                    "#ffdb5c",
-                    "#ff9f7f",
-                    "#fb7293",
-                    "#e8bcf3",
-                    "#8277ea"
-                  ];
-                  return colorList[params.dataIndex];
-                }
-              }
-            },
-            data: [
-              { value: 55, name: "百度" },
-              { value: 65, name: "谷歌" },
-              { value: 75, name: "新浪" },
-              { value: 85, name: "淘宝" },
-              { value: 95, name: "京东" },
-              { value: 105, name: "网易" },
-              { value: 115, name: "苹果" },
-              { value: 125, name: "天猫" }
-            ]
-          }
-        ]
-      };
-      website.setOption(option, true);
-    },
-    deleteRow(index, rows) {
-      rows.splice(index, 1);
     }
   },
   mounted() {
     this.getLine();
-    this.getWebsite();
   }
 };
 </script>
 
 <style lang="less">
-@import "~fullcalendar/dist/fullcalendar.css";
 @import "index.less";
-@import "calendar.less";
 </style>
