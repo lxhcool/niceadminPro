@@ -20,16 +20,16 @@
       </ul>
       <ul class="nice-nav nice-nav-right">
         <li class="nice-nav-item">
-          <a href="javascript:;" class="message">
+          <a href="javascript:;" class="message" title="信息中心">
             <i class="iconfont nice-icon-remind"></i>
             <span class="nice-badge-dot" v-if="false"></span>
           </a>
         </li>
-        <li class="nice-nav-item">
-          <a href="javascript:;" class="tag">
+        <!-- <li class="nice-nav-item">
+          <a href="javascript:;" class="tag" @click="tag">
             <i class="iconfont nice-icon-label"></i>
           </a>
-        </li>
+        </li> -->
         <li class="nice-nav-item">
           <el-dropdown trigger="click" @command="handelCommand">
             <span class="el-dropdown-link">
