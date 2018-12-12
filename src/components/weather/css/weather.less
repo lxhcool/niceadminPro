@@ -1,13 +1,52 @@
 .weather {
   height: 400px;
   position: relative;
-  // .header
+  .header {
+    height: 20%;
+  }
+  .content {
+    height: 60%;
+    text-align: center;
+    h2 {
+      img {
+        width: 140px;
+      }
+    }
+    .status {
+      text-align: center;
+      p {
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+  }
   .footer {
     width: 100%;
-    height: 80px;
+    height: 20%;
     position: absolute;
     left: 0;
     bottom: 0;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    .item {
+      width: 33.3333333%;
+      float: left;
+      img {
+        width: 35px;
+      }
+    }
   }
+}
+
+
+._32° {
+  font-size: 96px;
+  font-family: "Roboto";
+  color: rgb(255, 255, 255);
+  line-height: 1.875;
+  text-align: center;
+  position: absolute;
+  left: 562.855px;
+  top: 329.735px;
+  z-index: 189;
 }
