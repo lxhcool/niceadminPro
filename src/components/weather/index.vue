@@ -24,7 +24,7 @@
 </template>
 
 <script>
-  import util from '@/utils/util'
+  import util from 'utils/util'
   export default {
     name: 'weather',
     data () {
@@ -58,10 +58,12 @@
         let location = window.localStorage.getItem("cityName")
         this.$http.get('https://api.th580.com/customer/api/xinzhiWeather?location=' + location).then (res => {
           let weather = res.data.data.results[0]
-          weather.daily.forEach(element => {
-            element.date = util.getWeek(element.date)
-          });
-          this.todayWeather = weather.daily[0]
+          if (weather) {
+            weather.daily.forEach(element => {
+              element.date = util.getWeek(element.date)
+            });
+            this.todayWeather = weather.daily[0]
+          }
           this.threeWeather = weather.daily
         })
       }
