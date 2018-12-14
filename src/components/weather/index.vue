@@ -73,6 +73,7 @@
     },
     mounted () {
       this.map()
+      this.getWeather()
     }
   }
 </script>

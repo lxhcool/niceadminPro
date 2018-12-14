@@ -1,11 +1,6 @@
 <template>
   <div class="notfound-wrap">
-    <div class="content">
-      <div class="title"><span>404</span> Page Not Found</div>
-      <div class="sub">We couldn't find what you were looking for.</div>
-      <el-button type="primary" @click="returnPrevPage">Back Home</el-button>
-      <el-button type="primary" plain>Check Docs</el-button>
-    </div>
+    
   </div>
 </template>
 
@@ -23,5 +18,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+  .notfound-wrap {
+    width: 100%;
+    height: 100%;
+    background: url("../../assets/Error-404.jpg") no-repeat center;
+    background-size: cover;
+  }
 </style>
