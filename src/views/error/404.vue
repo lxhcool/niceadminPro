@@ -21,7 +21,6 @@ export default {
   .notfound-wrap {
     width: 100%;
     height: 100%;
-    background: url("../../assets/Error-404.jpg") no-repeat center;
     background-size: cover;
   }
 </style>
