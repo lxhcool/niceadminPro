@@ -50,7 +50,7 @@
     </div>
     <div class="nice-item">
       <el-row :gutter="20">
-        <el-col :span="6">
+        <el-col :span="6" :md="7">
           <div class="grid-content bg-purple">
             <el-card class="nice-card">
               <div slot="header" class="clearfix">
@@ -100,23 +100,23 @@
             </el-card>
           </div>
         </el-col>
-        <el-col :span="12">
-          <div class="grid-content bg-purple">
-            <el-card class="nice-card">
-              <div slot="header" class="clearfix">
-                <span>访问量</span>
-              </div>
-              <div id="panel"></div>
-            </el-card>
-          </div>
-        </el-col>
-        <el-col :span="6">
+        <el-col :span="6" :md="7">
           <div class="grid-content bg-purple">
             <el-card class="nice-card">
               <div slot="header" class="clearfix">
                 <span>天气</span>
               </div>
               <weather-component></weather-component>    
+            </el-card>
+          </div>
+        </el-col>
+        <el-col :span="12" :md="10">
+          <div class="grid-content bg-purple">
+            <el-card class="nice-card">
+              <div slot="header" class="clearfix">
+                <span>访问量</span>
+              </div>
+              <div id="panel"></div>
             </el-card>
           </div>
         </el-col>
